@@ -15,36 +15,44 @@
     </h:head>
 
     <h:body>
-        <h:form id="form1">
-            <p:fieldset id="filedset1_registroJogador" legend="Registrar Jogador">
-                <p:panelGrid columns="3" layout="grid" styleClass="customPaneGrid" contentStyleClass="ui-fluid">
-                    <p:column>
-                        <p:row>
-                            <p:outputLabel for="instrucoes1" value="Instruções"></p:outputLabel>
-                        </p:row>
-                        <p:row>
-                            <p:outputLabel for="instrucoes2" value=""></p:outputLabel>
-                        </p:row>
-                    </p:column>
-                    <p:column>
-                        <p:row>
-                            <p:outputLabel for="regcpf" value="CPF:"></p:outputLabel>
-                            <p:inputText id="regcpf" type="text" value="#{jSFSessionControl.jogador.cpf}" pt:placeholder="999.999.999-99"></p:inputText>
-                        </p:row>
-                        <p:row>
-                            <p:outputLabel for="regnome" value="Nome:"></p:outputLabel>
-                            <p:inputText id="regnome" type="text" value="#{jSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
-                        </p:row>
-                    </p:column>
-                    <p:column>
-                        <p:row></p:row>
-                        <p:row>
-                            <p:commandButton update="regcpf, regnome" value="Salvar" action="#{jSFSessionControl.salvarJogador()}"></p:commandButton>
-                        </p:row>
-                    </p:column>
-                </p:panelGrid>
-            </p:fieldset>
-        </h:form>
+        <p:panelGrid columns="2" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
+
+            <p:column>
+                <p:row>
+
+                </p:row>
+                <p:row>
+                    <p:fieldset id="fieldsetinstrucoes1" legend="Seguir Instruções">
+                        <p:dataTable id="tabelainstrucoes1" value="#{jSFRequestControl.buscarInstrucao()}" var="instrucao">
+                            <p:column headerText="Passo 1">
+                                <h:outputText id="inst1" value="#{instrucao.texto}" />
+                            </p:column>
+                        </p:dataTable>
+                    </p:fieldset>
+                </p:row>
+            </p:column>
+            
+            <h:column>
+                <h:form id="form1">
+                    <p:fieldset id="filedsetregistroJogador" legend="Registrar Jogador">
+                        <p:column>
+                            <p:row>
+                                <p:outputLabel for="regcpf" value="CPF:"></p:outputLabel>
+                                <p:inputText id="regcpf" type="text" value="#{jSFSessionControl.jogador.cpf}" pt:placeholder="999.999.999-99"></p:inputText>
+                            </p:row>
+                            <p:row>
+                                <p:outputLabel for="regnome" value="Nome:"></p:outputLabel>
+                                <p:inputText id="regnome" type="text" value="#{jSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
+                            </p:row>
+                            <p:row>
+                                <p:commandButton update="regcpf, regnome" style="margin-top:15px" value="Cadastrar" action="#{jSFSessionControl.salvarJogador()}"></p:commandButton>
+                            </p:row>
+                        </p:column>
+                    </p:fieldset>
+                </h:form>
+            </h:column>
+
+        </p:panelGrid>
     </h:body>
     
 </f:view>

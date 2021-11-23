@@ -11,6 +11,8 @@ import javax.inject.Inject;
 public class EJBStatefullServices 
 {
     // ------------------------- ATRIBUTOS DE INSTÂNCIA ------------------------- //
+    @Inject
+    private Jogador jogador;
 
     // ------------------------- CONSTRUTORES ------------------------- //
     public EJBStatefullServices(){}
@@ -18,7 +20,7 @@ public class EJBStatefullServices
     // ------------------------- MÉTODOS DE SERVIÇO ------------------------- //
     public void salvarJogador(String cpf, String nome)
     {
-        Jogador jogador = new Jogador(cpf, nome);
+        jogador = new Jogador(cpf, nome);
         System.out.println(jogador);
     }
     
