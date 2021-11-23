@@ -3,6 +3,5 @@
   <!-- Define Persistence Unit -->
   <persistence-unit name="my_persistence_unit">
     <class>br.com.utfpr.model.entity.Jogador</class>
-    <class>br.com.utfpr.model.entity.Ranking</class>
   </persistence-unit>
 </persistence>

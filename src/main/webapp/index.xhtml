@@ -16,24 +16,30 @@
 
     <h:body>
         <h:form id="form1">
-            <p:fieldset id="filedset1_registroJogador" legend="Registro Jogador">
-                <p:panelGrid columns="2" layout="grid" styleClass="customPaneGrid" contentStyleClass="ui-fluid">
+            <p:fieldset id="filedset1_registroJogador" legend="Registrar Jogador">
+                <p:panelGrid columns="3" layout="grid" styleClass="customPaneGrid" contentStyleClass="ui-fluid">
                     <p:column>
                         <p:row>
-                            <h4>Registrar Jogador</h4>
+                            <p:outputLabel for="instrucoes1" value="Instruções"></p:outputLabel>
                         </p:row>
                         <p:row>
-                            <p:outputLabel for="regcpf" value="CPF:"></p:outputLabel>
-                            <p:inputText id="regcpf" type="text" value="" pt:placeholder="999.999.999-99"></p:inputText>
-                        </p:row>
-                        <p:row>
-                            <p:outputLabel for="regnome" value="Nome:"></p:outputLabel>
-                            <p:inputText id="regnome" type="text" value="" pt:placeholder="nome completo"></p:inputText>
+                            <p:outputLabel for="instrucoes2" value=""></p:outputLabel>
                         </p:row>
                     </p:column>
                     <p:column>
                         <p:row>
-                            <p:commandButton update="regcpf, regnome" value="Salvar" action=""></p:commandButton>
+                            <p:outputLabel for="regcpf" value="CPF:"></p:outputLabel>
+                            <p:inputText id="regcpf" type="text" value="#{jSFSessionControl.jogador.cpf}" pt:placeholder="999.999.999-99"></p:inputText>
+                        </p:row>
+                        <p:row>
+                            <p:outputLabel for="regnome" value="Nome:"></p:outputLabel>
+                            <p:inputText id="regnome" type="text" value="#{jSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
+                        </p:row>
+                    </p:column>
+                    <p:column>
+                        <p:row></p:row>
+                        <p:row>
+                            <p:commandButton update="regcpf, regnome" value="Salvar" action="#{jSFSessionControl.salvarJogador()}"></p:commandButton>
                         </p:row>
                     </p:column>
                 </p:panelGrid>

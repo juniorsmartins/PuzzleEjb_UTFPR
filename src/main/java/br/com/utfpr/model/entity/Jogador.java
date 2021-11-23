@@ -27,11 +27,8 @@ public class Jogador implements Serializable
     private String nome;
     @Column(nullable = false, unique = true)
     private String cpf;
+    private int pontos;
     
-    @ManyToOne
-    @JoinColumn(name = "ranking_id")
-    private Ranking ranking;
-
     // ------------------------- CONSTRUTORES ------------------------- //
     public Jogador(){}
     public Jogador(String nome, String cpf)
@@ -51,15 +48,15 @@ public class Jogador implements Serializable
     {return cpf;}
     public void setCpf(String cpf) 
     {this.cpf = cpf;}
-    public Ranking getRanking() 
-    {return ranking;}
-    public void setRanking(Ranking ranking) 
-    {this.ranking = ranking;}
+    public int getPontos() 
+    {return pontos;}
+    public void setPontos(int pontos) 
+    {this.pontos = pontos;}
 
     // ------------------------- MÉTODOS SOBRESCRITOS ------------------------- //
     @Override
     public String toString() 
-    {return "Jogador { Nome = " + nome + " / CPF = " + cpf + " }";}
+    {return "Jogador { CPF = " + cpf + " / Nome = " + nome + " / pontos = " + pontos + " } \n";}
 
     @Override
     public int hashCode() 
