@@ -22,18 +22,20 @@
 
                 </p:row>
                 <p:row>
-                    <p:fieldset id="fieldsetinstrucoes1" legend="Seguir Instruções">
-                        <p:dataTable id="tabelainstrucoes1" value="#{instrucoesJSFRequestControl.buscarInstrucoes(1)}" var="instrucoes">
-                            <p:column headerText="Passo 1">
-                                <h:outputText id="inst1" value="#{instrucoes}" />
-                            </p:column>
-                        </p:dataTable>
-                    </p:fieldset>
+                    <h:form id="form1">
+                        <p:fieldset id="fieldset_instrucoes1" legend="Seguir Instruções">
+                            <p:dataTable id="tbl_instrucoes1" value="#{instrucoesJSFRequestControl.buscarInstrucoes(1)}" var="instrucoes">
+                                <p:column headerText="Passo 1">
+                                    <h:outputText id="inst1" value="#{instrucoes}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
+                    </h:form>
                 </p:row>
             </p:column>
             
             <h:column>
-                <h:form id="form1">
+                <h:form id="form2">
                     <p:fieldset id="filedsetregistrarJogador" legend="Registrar Jogador">
                         <p:column>
                             <p:row>
@@ -45,7 +47,7 @@
                                 <p:inputText id="regnome" type="text" value="#{jogadorJSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="regcpf, regnome" style="margin-top:15px" value="Cadastrar" action="#{jogadorJSFSessionControl.salvarJogador()}"></p:commandButton>
+                                <p:commandButton update="regcpf, regnome" style="margin-top:15px" value="Carregar jogo" action="#{jogadorJSFSessionControl.salvarJogador()}"></p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>
