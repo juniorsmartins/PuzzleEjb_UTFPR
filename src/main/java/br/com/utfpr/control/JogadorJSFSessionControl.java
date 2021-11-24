@@ -1,7 +1,7 @@
 package br.com.utfpr.control;
 
 import br.com.utfpr.model.entity.Jogador;
-import br.com.utfpr.model.services.EJBStatefullServices;
+import br.com.utfpr.model.services.JogadorEJBStatefullServices;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -11,33 +11,37 @@ import javax.inject.Inject;
 /**
  * @author JuniorMartins
  */
-@Named(value = "jSFSessionControl")
+@Named(value = "jogadorJSFSessionControl")
 @SessionScoped
-public class JSFSessionControl implements Serializable 
+public class JogadorJSFSessionControl implements Serializable 
 {
     // ------------------------- ATRIBUTOS DE CLASSE ------------------------- //
     private static final long serialVersionUID = 1l;
     
     // ------------------------- ATRIBUTOS DE INSTÂNCIA ------------------------- //
     @EJB
-    private EJBStatefullServices eJBStatefullServices;
+    private JogadorEJBStatefullServices jogadorEJBStatefullServices;
     @Inject
     private Jogador jogador;
     
     // ------------------------- CONSTRUTORES ------------------------- //
-    public JSFSessionControl(){}
+    public JogadorJSFSessionControl(){}
     
     // ------------------------- MÉTODOS CONTROLADORES ------------------------- //
     public void salvarJogador()
-    {
-        eJBStatefullServices.salvarJogador(jogador.getCpf(), jogador.getNome());
-    }
+    {jogadorEJBStatefullServices.salvar(jogador);}
+    
+    public void buscarPorId()
+    {jogador = jogadorEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
+    
+    public void removerJogador()
+    {jogadorEJBStatefullServices.remover(jogador);}
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //
-    public EJBStatefullServices geteJBStatefullServices() 
-    {return eJBStatefullServices;}
-    public void seteJBStatefullServices(EJBStatefullServices eJBStatefullServices) 
-    {this.eJBStatefullServices = eJBStatefullServices;}
+    public JogadorEJBStatefullServices geteJBStatefullServices() 
+    {return jogadorEJBStatefullServices;}
+    public void seteJBStatefullServices(JogadorEJBStatefullServices jogadorEJBStatefullServices) 
+    {this.jogadorEJBStatefullServices = jogadorEJBStatefullServices;}
     public Jogador getJogador() 
     {return jogador;}
     public void setJogador(Jogador jogador) 
