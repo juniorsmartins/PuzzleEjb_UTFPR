@@ -1,7 +1,7 @@
-package br.com.utfpr.control;
+package br.com.utfpr.mvc.control;
 
-import br.com.utfpr.model.entity.Jogador;
-import br.com.utfpr.model.services.JogadorEJBStatefullServices;
+import br.com.utfpr.webservices.domainmodel.Jogador;
+import br.com.utfpr.webservices.application.JogadorEJBStatefullServices;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

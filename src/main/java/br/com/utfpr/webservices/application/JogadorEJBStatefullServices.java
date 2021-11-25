@@ -1,6 +1,6 @@
-package br.com.utfpr.model.services;
+package br.com.utfpr.webservices.application;
 
-import br.com.utfpr.model.entity.Jogador;
+import br.com.utfpr.webservices.domainmodel.Jogador;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.annotation.PostConstruct;
@@ -24,6 +24,8 @@ public class JogadorEJBStatefullServices
         if(mapaJogadores.containsKey(jogador.getCpf()))
         {jogador.setPontos(jogador.getPontos() + mapaJogadores.get(jogador).getPontos());}
         mapaJogadores.put(jogador.getCpf(), jogador);
+        System.out.println(jogador);
+        
     }
     
     public Jogador consultarPorId(Long id, Jogador jogador) 

@@ -1,4 +1,4 @@
-package br.com.utfpr.model.services;
+package br.com.utfpr.webservices.application;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class InstrucoesEJBStatelessServices
     public void gerarBaseDadosInstrucoes()
     {
         mapaInstrucoes = new HashMap<>();
-        mapaInstrucoes.put(1, "Registre-se: digite teu CPF e teu nome completo; Depois clique no botão 'Carregar jogo'.");
+        mapaInstrucoes.put(1, "Registre-se: digite o CPF e o nome completo e depois clique no botão 'Carregar jogo'.");
         mapaInstrucoes.put(2, "Instrucao 2");
         mapaInstrucoes.put(3, "Instrucao 3");
     }

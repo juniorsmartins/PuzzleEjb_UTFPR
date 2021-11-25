@@ -1,6 +1,6 @@
-package br.com.utfpr.control;
+package br.com.utfpr.mvc.control;
 
-import br.com.utfpr.model.services.InstrucoesEJBStatelessServices;
+import br.com.utfpr.webservices.application.InstrucoesEJBStatelessServices;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;

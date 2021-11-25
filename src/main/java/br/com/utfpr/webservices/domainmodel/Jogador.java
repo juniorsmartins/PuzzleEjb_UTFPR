@@ -1,4 +1,4 @@
-package br.com.utfpr.model.entity;
+package br.com.utfpr.webservices.domainmodel;
 
 import java.io.Serializable;
 import java.util.Objects;
