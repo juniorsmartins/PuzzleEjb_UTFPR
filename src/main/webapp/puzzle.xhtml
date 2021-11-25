@@ -15,7 +15,85 @@
     </h:head>
 
     <h:body>
-        <div>TODO write content</div>
+        <p:panelGrid columns="3" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
+
+            <p:column>
+                <p:row>
+                    <h:form id="form_instrucoes2">
+                        <p:fieldset id="fieldset_instrucoes2" legend="Seguir Instruções">
+                            <p:dataTable id="tbl_instrucoes2" value="#{instrucoesJSFRequestControl.buscarInstrucoes(2)}" var="instrucoes2">
+                                <p:column headerText="Siga">
+                                    <h:outputText id="inst2" value="#{instrucoes2}" />
+                                </p:column>
+                            </p:dataTable>
+                            <p:dataTable id="tbl_instrucoes3" value="#{instrucoesJSFRequestControl.buscarInstrucoes(3)}" var="instrucoes3">
+                                <p:column>
+                                    <h:outputText id="inst3" value="#{instrucoes3}" />
+                                </p:column>
+                            </p:dataTable>
+                            <p:dataTable id="tbl_instrucoes4" value="#{instrucoesJSFRequestControl.buscarInstrucoes(4)}" var="instrucoes4">
+                                <p:column>
+                                    <h:outputText id="inst4" value="#{instrucoes4}" />
+                                </p:column>
+                            </p:dataTable>
+                            <p:dataTable id="tbl_instrucoes5" value="#{instrucoesJSFRequestControl.buscarInstrucoes(5)}" var="instrucoes5">
+                                <p:column>
+                                    <h:outputText id="inst5" value="#{instrucoes5}" />
+                                </p:column>
+                            </p:dataTable>
+                            <p:dataTable id="tbl_instrucoes6" value="#{instrucoesJSFRequestControl.buscarInstrucoes(6)}" var="instrucoes6">
+                                <p:column>
+                                    <h:outputText id="inst6" value="#{instrucoes6}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
+                    </h:form>
+                </p:row>
+            </p:column>
+            
+            <h:column>
+                <h:form id="form_jogo1">
+                    <p:fieldset id="filedset_jogo1" legend="Números de Jogo">
+                        <p:column>
+                            <p:row>
+                                <p:outputLabel for="valor1" value="Valor 1:"></p:outputLabel>
+                                <p:outputLabel id="valor1" value="#{numerosRandomicosJSFRequestControl.valor1}"></p:outputLabel> <br/>
+                            </p:row>
+                            <p:row>
+                                <p:outputLabel for="valor2" value="Valor 2:"></p:outputLabel>
+                                <p:outputLabel id="valor2" value="#{numerosRandomicosJSFRequestControl.valor2}"></p:outputLabel> <br/>
+                            </p:row>
+                            <p:row>
+                                <p:commandButton update="valor1 valor2" style="margin-top:15px" value="Sorteia números" action="#{numerosRandomicosJSFRequestControl.gerarNumeroRandomico()}"></p:commandButton>
+                            </p:row>
+                        </p:column>
+                    </p:fieldset>
+                </h:form>
+            </h:column>
+            
+            <h:column>
+                <h:form id="form_jogo2">
+                    <p:fieldset id="filedset_jogo2" legend="Resultado do Jogo">
+                        <p:column>
+                            <p:row>
+                                <p:outputLabel for="palpite" value="Digite o palpite:"></p:outputLabel>
+                                <p:inputText id="palpite" type="text" value="#{numerosRandomicosJSFRequestControl.palpite}"></p:inputText> <br/>
+                            </p:row>
+                            <p:row>
+                                <p:outputLabel for="resultado" value="Resultado:"></p:outputLabel>
+                                <p:outputLabel id="resultado" value="#{numerosRandomicosJSFRequestControl.resultado}"></p:outputLabel> <br/>
+                            </p:row>
+                            <p:row>
+                                <p:commandButton update="palpite resultado" style="margin-top:15px" value="Verificar palpite" action="#{numerosRandomicosJSFRequestControl.verificarPalpite()}"></p:commandButton>
+                            </p:row>
+                        </p:column>
+                    </p:fieldset>
+                </h:form>
+            </h:column>
+
+        </p:panelGrid>
+        
+        
     </h:body>
     
 </f:view>

@@ -1,4 +1,4 @@
-package br.com.utfpr.mvc.control;
+package br.com.utfpr.presentation.control;
 
 import br.com.utfpr.webservices.application.InstrucoesEJBStatelessServices;
 import java.io.Serializable;

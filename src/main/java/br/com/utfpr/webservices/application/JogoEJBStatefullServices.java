@@ -10,13 +10,13 @@ import javax.ejb.Stateful;
  * @author JuniorMartins
  */
 @Stateful
-public class JogadorEJBStatefullServices
+public class JogoEJBStatefullServices
 {
     // ------------------------- ATRIBUTOS DE INSTÂNCIA ------------------------- //
     private Map<String, Jogador> mapaJogadores;
     
     // ------------------------- CONSTRUTORES ------------------------- //
-    public JogadorEJBStatefullServices(){}
+    public JogoEJBStatefullServices(){}
     
     // ------------------------- MÉTODOS DE SERVIÇO ------------------------- //
     public void salvar(Jogador jogador) 
@@ -25,7 +25,6 @@ public class JogadorEJBStatefullServices
         {jogador.setPontos(jogador.getPontos() + mapaJogadores.get(jogador).getPontos());}
         mapaJogadores.put(jogador.getCpf(), jogador);
         System.out.println(jogador);
-        
     }
     
     public Jogador consultarPorId(Long id, Jogador jogador) 
@@ -33,7 +32,7 @@ public class JogadorEJBStatefullServices
     
     public void remover(Jogador jogador) 
     {mapaJogadores.remove(jogador.getCpf(), jogador);}
-    
+       
     // ------------------------- MÉTODOS AUXILIARES ------------------------- //
     @PostConstruct
     public void gerarBaseDadosJogadores()

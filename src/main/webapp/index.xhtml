@@ -19,13 +19,10 @@
 
             <p:column>
                 <p:row>
-
-                </p:row>
-                <p:row>
-                    <h:form id="form1">
+                    <h:form id="form_instrucoes1">
                         <p:fieldset id="fieldset_instrucoes1" legend="Seguir Instruções">
                             <p:dataTable id="tbl_instrucoes1" value="#{instrucoesJSFRequestControl.buscarInstrucoes(1)}" var="instrucoes">
-                                <p:column headerText="Passo 1">
+                                <p:column headerText="Siga">
                                     <h:outputText id="inst1" value="#{instrucoes}" />
                                 </p:column>
                             </p:dataTable>
@@ -35,19 +32,20 @@
             </p:column>
             
             <h:column>
-                <h:form id="form2">
-                    <p:fieldset id="filedsetregistrarJogador" legend="Registrar Jogador">
+                <h:form id="form_registro1">
+                    <p:fieldset id="filedset_registrarJogador" legend="Registrar Jogador">
                         <p:column>
                             <p:row>
                                 <p:outputLabel for="regcpf" value="CPF:"></p:outputLabel>
-                                <p:inputText id="regcpf" type="text" value="#{jogadorJSFSessionControl.jogador.cpf}" pt:placeholder="999.999.999-99"></p:inputText>
+                                <p:inputText id="regcpf" type="text" value="#{jogoJSFSessionControl.jogador.cpf}" pt:placeholder="999.999.999-99"></p:inputText>
                             </p:row>
                             <p:row>
                                 <p:outputLabel for="regnome" value="Nome:"></p:outputLabel>
-                                <p:inputText id="regnome" type="text" value="#{jogadorJSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
+                                <p:inputText id="regnome" type="text" value="#{jogoJSFSessionControl.jogador.nome}" pt:placeholder="nome completo"></p:inputText>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="regcpf, regnome" style="margin-top:15px" value="Carregar jogo" action="#{jogadorJSFSessionControl.salvarJogador()}"></p:commandButton>
+                                <p:commandButton update="regcpf, regnome" style="margin-top:15px" value="Carregar jogo" action="#{jogoJSFSessionControl.salvarJogador()}">
+                                </p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>

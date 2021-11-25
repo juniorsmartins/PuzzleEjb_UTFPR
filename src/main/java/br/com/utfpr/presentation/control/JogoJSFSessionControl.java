@@ -1,7 +1,7 @@
-package br.com.utfpr.mvc.control;
+package br.com.utfpr.presentation.control;
 
 import br.com.utfpr.webservices.domainmodel.Jogador;
-import br.com.utfpr.webservices.application.JogadorEJBStatefullServices;
+import br.com.utfpr.webservices.application.JogoEJBStatefullServices;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -11,37 +11,40 @@ import javax.inject.Inject;
 /**
  * @author JuniorMartins
  */
-@Named(value = "jogadorJSFSessionControl")
+@Named(value = "jogoJSFSessionControl")
 @SessionScoped
-public class JogadorJSFSessionControl implements Serializable 
+public class JogoJSFSessionControl implements Serializable 
 {
     // ------------------------- ATRIBUTOS DE CLASSE ------------------------- //
     private static final long serialVersionUID = 1l;
     
     // ------------------------- ATRIBUTOS DE INSTÂNCIA ------------------------- //
     @EJB
-    private JogadorEJBStatefullServices jogadorEJBStatefullServices;
+    private JogoEJBStatefullServices jogoEJBStatefullServices;
     @Inject
     private Jogador jogador;
     
     // ------------------------- CONSTRUTORES ------------------------- //
-    public JogadorJSFSessionControl(){}
+    public JogoJSFSessionControl(){}
     
     // ------------------------- MÉTODOS CONTROLADORES ------------------------- //
-    public void salvarJogador()
-    {jogadorEJBStatefullServices.salvar(jogador);}
+    public String salvarJogador()
+    {
+        jogoEJBStatefullServices.salvar(jogador);
+        return "puzzle";
+    }
     
     public void buscarPorId()
-    {jogador = jogadorEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
+    {jogador = jogoEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
     
     public void removerJogador()
-    {jogadorEJBStatefullServices.remover(jogador);}
+    {jogoEJBStatefullServices.remover(jogador);}
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //
-    public JogadorEJBStatefullServices geteJBStatefullServices() 
-    {return jogadorEJBStatefullServices;}
-    public void seteJBStatefullServices(JogadorEJBStatefullServices jogadorEJBStatefullServices) 
-    {this.jogadorEJBStatefullServices = jogadorEJBStatefullServices;}
+    public JogoEJBStatefullServices geteJBStatefullServices() 
+    {return jogoEJBStatefullServices;}
+    public void seteJBStatefullServices(JogoEJBStatefullServices jogoEJBStatefullServices) 
+    {this.jogoEJBStatefullServices = jogoEJBStatefullServices;}
     public Jogador getJogador() 
     {return jogador;}
     public void setJogador(Jogador jogador) 
