@@ -57,14 +57,14 @@
                         <p:column>
                             <p:row>
                                 <p:outputLabel for="valor1" value="Valor 1:"></p:outputLabel>
-                                <p:outputLabel id="valor1" value="#{numerosRandomicosJSFRequestControl.valor1}"></p:outputLabel> <br/>
+                                <p:outputLabel id="valor1" value="#{jogoJSFSessionControl.puzzle.valor1}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
                                 <p:outputLabel for="valor2" value="Valor 2:"></p:outputLabel>
-                                <p:outputLabel id="valor2" value="#{numerosRandomicosJSFRequestControl.valor2}"></p:outputLabel> <br/>
+                                <p:outputLabel id="valor2" value="#{jogoJSFSessionControl.puzzle.valor2}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="valor1 valor2" style="margin-top:15px" value="Sorteia números" action="#{numerosRandomicosJSFRequestControl.gerarNumeroRandomico()}"></p:commandButton>
+                                <p:commandButton update="valor1 valor2" style="margin-top:15px" value="Sorteia números" action="#{jogoJSFSessionControl.gerarNumeroRandomico()}"></p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>
@@ -77,14 +77,14 @@
                         <p:column>
                             <p:row>
                                 <p:outputLabel for="palpite" value="Digite o palpite:"></p:outputLabel>
-                                <p:inputText id="palpite" type="text" value="#{numerosRandomicosJSFRequestControl.palpite}"></p:inputText> <br/>
+                                <p:inputText id="palpite" type="text" value="#{jogoJSFSessionControl.puzzle.palpite}"></p:inputText> <br/>
                             </p:row>
                             <p:row>
                                 <p:outputLabel for="resultado" value="Resultado:"></p:outputLabel>
-                                <p:outputLabel id="resultado" value="#{numerosRandomicosJSFRequestControl.resultado}"></p:outputLabel> <br/>
+                                <p:outputLabel id="resultado" value="#{jogoJSFSessionControl.puzzle.resultado}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="palpite resultado" style="margin-top:15px" value="Verificar palpite" action="#{numerosRandomicosJSFRequestControl.verificarPalpite()}"></p:commandButton>
+                                <p:commandButton update="palpite resultado" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}"></p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>

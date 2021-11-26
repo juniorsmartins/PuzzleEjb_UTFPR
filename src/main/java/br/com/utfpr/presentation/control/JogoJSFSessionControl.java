@@ -6,7 +6,6 @@ import br.com.utfpr.webservices.domainmodel.Puzzle;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.stream.Stream;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 
@@ -38,8 +37,8 @@ public class JogoJSFSessionControl implements Serializable
         return "puzzle";
     }
    
-    public void buscarPorId()
-    {jogador = jogoEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
+//    public void buscarPorId()
+//    {jogador = jogoEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
     
     public void removerJogador()
     {jogoEJBStatefullServices.remover(jogador);}
@@ -55,15 +54,19 @@ public class JogoJSFSessionControl implements Serializable
     {puzzle = jogoEJBStatefullServices.verificarPalpite(puzzle);}
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //
-    public JogoEJBStatefullServices geteJBStatefullServices() 
+    public JogoEJBStatefullServices getJogoEJBStatefullServices() 
     {return jogoEJBStatefullServices;}
-    public void seteJBStatefullServices(JogoEJBStatefullServices jogoEJBStatefullServices) 
+    public void setJogoEJBStatefullServices(JogoEJBStatefullServices jogoEJBStatefullServices) 
     {this.jogoEJBStatefullServices = jogoEJBStatefullServices;}
     public Jogador getJogador() 
     {return jogador;}
     public void setJogador(Jogador jogador) 
     {this.jogador = jogador;}
-      
+    public Puzzle getPuzzle() 
+    {return puzzle;}
+    public void setPuzzle(Puzzle puzzle) 
+    {this.puzzle = puzzle;}
+        
     
     
     

@@ -3,7 +3,7 @@ package br.com.utfpr.presentation.control;
 import br.com.utfpr.webservices.application.RankingEJBSingletonServices;
 import br.com.utfpr.webservices.domainmodel.Jogador;
 import java.io.Serializable;
-import java.util.stream.Stream;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -23,9 +23,9 @@ public class RankingJSFRequestControl implements Serializable
     private RankingEJBSingletonServices rankingEJBSingletonServices;   
     
     // ------------------------- CONSTRUTORES ------------------------- //
-    public RankingJSFRequestControl() {}
+    public RankingJSFRequestControl(){}
     
     // ------------------------- MÉTODOS CONTROLADORES ------------------------- //
-    public Stream<Jogador> buscarRanking()
+    public List<Jogador> buscarRanking()
     {return rankingEJBSingletonServices.buscarRanking();}
 }

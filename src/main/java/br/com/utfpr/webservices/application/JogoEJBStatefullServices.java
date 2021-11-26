@@ -5,7 +5,6 @@ import br.com.utfpr.webservices.domainmodel.Puzzle;
 import br.com.utfpr.webservices.infrastructure.Ranking;
 import java.util.Random;
 import javax.ejb.Stateful;
-import javax.inject.Inject;
 
 /**
  * @author JuniorMartins
@@ -19,17 +18,27 @@ public class JogoEJBStatefullServices
     // ------------------------- MÉTODOS DE SERVIÇO ------------------------- //
     public void salvar(Jogador jogador) 
     {
-        if(Ranking.getMapaJogadores().containsKey(jogador.getCpf()))
-        {jogador.setPontos(jogador.getPontos() + Ranking.getMapaJogadores().get(jogador).getPontos());}
-        Ranking.getMapaJogadores().put(jogador.getCpf(), jogador);
+        Ranking.getListaJogadores().stream().filter(joga -> (joga.getCpf().equalsIgnoreCase(jogador.getCpf()))).map(joga -> {
+            jogador.setPontos(jogador.getPontos() + joga.getPontos());
+            return joga;
+        }).forEachOrdered(joga -> {
+            Ranking.getListaJogadores().remove(joga);
+        });
+        Ranking.getListaJogadores().add(jogador);
         System.out.println(jogador);
     }
     
-    public Jogador consultarPorId(Long id, Jogador jogador) 
-    {return Ranking.getMapaJogadores().getOrDefault(id, jogador);}
-    
+//    public Jogador consultarPorId(Long id, Jogador jogador) 
+//    {
+//        return
+//    )
+
     public void remover(Jogador jogador) 
-    {Ranking.getMapaJogadores().remove(jogador.getCpf(), jogador);}
+    {
+        Ranking.getListaJogadores().stream().filter(jog -> (jog.getCpf().equalsIgnoreCase(jogador.getCpf()))).forEachOrdered(jog -> {
+            Ranking.getListaJogadores().remove(jogador);
+        });
+    }
     
     public Integer gerarNumeroRandomico()
     {
@@ -39,10 +48,13 @@ public class JogoEJBStatefullServices
     
     public Puzzle verificarPalpite(Puzzle puzzle)
     {
-        if(puzzle.getPalpite() != puzzle.getSoma())
-        {puzzle.setResultado("Errou");}
-        else
+        if(puzzle.getPalpite() == puzzle.getSoma())
         {puzzle.setResultado("Acertou");}
+        else
+        {puzzle.setResultado("Errou");}
+        puzzle.setPalpite(0);
+        puzzle.setValor1(0);
+        puzzle.setValor2(0);
         return puzzle;
     }
 }

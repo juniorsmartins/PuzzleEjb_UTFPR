@@ -2,9 +2,6 @@ package br.com.utfpr.presentation.control;
 
 import br.com.utfpr.webservices.application.InstrucoesEJBStatelessServices;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
