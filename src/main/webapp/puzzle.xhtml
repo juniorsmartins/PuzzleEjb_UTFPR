@@ -15,7 +15,7 @@
     </h:head>
 
     <h:body>
-        <p:panelGrid columns="3" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
+        <p:panelGrid columns="2" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
 
             <p:column>
                 <p:row>
@@ -53,7 +53,7 @@
             
             <h:column>
                 <h:form id="form_jogo1">
-                    <p:fieldset id="filedset_jogo1" legend="Números de Jogo">
+                    <p:fieldset id="filedset_jogo1" legend="Área de Jogo">
                         <p:column>
                             <p:row>
                                 <p:outputLabel for="valor1" value="Valor 1:"></p:outputLabel>
@@ -64,16 +64,12 @@
                                 <p:outputLabel id="valor2" value="#{jogoJSFSessionControl.puzzle.valor2}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="valor1 valor2" style="margin-top:15px" value="Sorteia números" action="#{jogoJSFSessionControl.gerarNumeroRandomico()}"></p:commandButton>
+                                <p:commandButton update="valor1 valor2 resultado" style="margin-top:15px" value="Sortear números" action="#{jogoJSFSessionControl.gerarNumeroRandomico()}"></p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>
-                </h:form>
-            </h:column>
-            
-            <h:column>
-                <h:form id="form_jogo2">
-                    <p:fieldset id="filedset_jogo2" legend="Resultado do Jogo">
+
+                    <p:fieldset id="filedset_jogo2" style="margin-top:15px" legend="Área de Resultados">
                         <p:column>
                             <p:row>
                                 <p:outputLabel for="palpite" value="Digite o palpite:"></p:outputLabel>
@@ -84,10 +80,19 @@
                                 <p:outputLabel id="resultado" value="#{jogoJSFSessionControl.puzzle.resultado}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="palpite resultado" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}"></p:commandButton>
+                                <p:commandButton update="palpite resultado valor1 valor2 form_ranking1" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}"></p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>
+                    
+                    <p:fieldset id="filedset_jogo3" style="margin-top:15px" legend="Sair da Sessão">
+                        <p:column>
+                            <p:row>
+                                <p:commandButton value="Sair" icon="pi pi-home" action="#{jogoJSFSessionControl.sairSessao()}" styleClass="p-mr-2" />
+                            </p:row>
+                        </p:column>
+                    </p:fieldset>
+                    
                 </h:form>
             </h:column>
 

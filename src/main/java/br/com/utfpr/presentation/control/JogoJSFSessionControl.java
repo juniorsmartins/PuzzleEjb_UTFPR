@@ -36,9 +36,6 @@ public class JogoJSFSessionControl implements Serializable
         jogoEJBStatefullServices.salvar(jogador);
         return "puzzle";
     }
-   
-//    public void buscarPorId()
-//    {jogador = jogoEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
     
     public void removerJogador()
     {jogoEJBStatefullServices.remover(jogador);}
@@ -48,10 +45,18 @@ public class JogoJSFSessionControl implements Serializable
         puzzle.setValor1(jogoEJBStatefullServices.gerarNumeroRandomico());  
         puzzle.setValor2(jogoEJBStatefullServices.gerarNumeroRandomico());
         puzzle.setSoma(puzzle.getValor1() + puzzle.getValor2());
+        puzzle.setResultado(" ");
     }
     
     public void verificarPalpite()
-    {puzzle = jogoEJBStatefullServices.verificarPalpite(puzzle);}
+    {
+        puzzle = jogoEJBStatefullServices.verificarPalpite(puzzle);
+        if(puzzle.getResultado().equalsIgnoreCase("Acertou"))
+        {jogador.setPontos(jogador.getPontos() + 1);}
+    }
+    
+    public String sairSessao()
+    {return jogoEJBStatefullServices.sairSessao();}
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //
     public JogoEJBStatefullServices getJogoEJBStatefullServices() 

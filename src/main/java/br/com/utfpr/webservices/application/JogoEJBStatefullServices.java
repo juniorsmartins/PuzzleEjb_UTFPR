@@ -5,6 +5,7 @@ import br.com.utfpr.webservices.domainmodel.Puzzle;
 import br.com.utfpr.webservices.infrastructure.Ranking;
 import java.util.Random;
 import javax.ejb.Stateful;
+import javax.faces.context.FacesContext;
 
 /**
  * @author JuniorMartins
@@ -28,11 +29,6 @@ public class JogoEJBStatefullServices
         System.out.println(jogador);
     }
     
-//    public Jogador consultarPorId(Long id, Jogador jogador) 
-//    {
-//        return
-//    )
-
     public void remover(Jogador jogador) 
     {
         Ranking.getListaJogadores().stream().filter(jog -> (jog.getCpf().equalsIgnoreCase(jogador.getCpf()))).forEachOrdered(jog -> {
@@ -56,5 +52,11 @@ public class JogoEJBStatefullServices
         puzzle.setValor1(0);
         puzzle.setValor2(0);
         return puzzle;
+    }
+    
+    public String sairSessao()
+    {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "index?faces-redirect=true";
     }
 }
