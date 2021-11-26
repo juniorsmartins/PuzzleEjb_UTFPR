@@ -15,6 +15,24 @@
     </h:head>
 
     <h:body>
+        
+        <div class="card">
+            <h:form>
+                <p:menubar>
+                    <f:facet name="options">
+                        <div class="ui-input-icon-left p-mr-2">
+                            <i class="pi pi-fw pi-comments" />
+                            <p:inputText id="mensa1" type="text" value="#{produtorJSFRequestControl.mensagem}" placeholder="Mensagem para o suporte"/>
+                        </div>
+                        <p:commandButton update="mensa1" value="Enviar" id="enviarMensagem1" action="#{produtorJSFRequestControl.send()}" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info m-2"/>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+        
+        
+        
+        
         <p:panelGrid columns="2" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
 
             <p:column>
