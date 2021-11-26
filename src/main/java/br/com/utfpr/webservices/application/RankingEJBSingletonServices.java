@@ -1,10 +1,10 @@
 package br.com.utfpr.webservices.application;
 
 import br.com.utfpr.webservices.domainmodel.Jogador;
-import br.com.utfpr.webservices.infrastructure.JogadorPersistencia;
+import br.com.utfpr.webservices.infrastructure.Ranking;
+import java.util.Comparator;
 import java.util.stream.Stream;
 import javax.ejb.Singleton;
-import javax.inject.Inject;
 
 /**
  * @author JuniorMartins
@@ -12,14 +12,9 @@ import javax.inject.Inject;
 @Singleton
 public class RankingEJBSingletonServices 
 {
-    // ------------------------- ATRIBUTOS DE INSTÂNCIA ------------------------- //
-    @Inject
-    private JogadorPersistencia jogadorPersist;
-    
     // -------------------- MÉTODOS DE SERVIÇO -------------------- //
     public Stream<Jogador> buscarRanking()
-    {return jogadorPersist.buscarRanking();} 
-
+    {return Ranking.getMapaJogadores().values().stream().sorted(Comparator.comparing(Jogador::getPontos));}
 
 
 

@@ -2,6 +2,7 @@ package br.com.utfpr.presentation.control;
 
 import br.com.utfpr.webservices.domainmodel.Jogador;
 import br.com.utfpr.webservices.application.JogoEJBStatefullServices;
+import br.com.utfpr.webservices.domainmodel.Puzzle;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -24,6 +25,8 @@ public class JogoJSFSessionControl implements Serializable
     private JogoEJBStatefullServices jogoEJBStatefullServices;
     @Inject
     private Jogador jogador;
+    @Inject
+    private Puzzle puzzle;
     
     // ------------------------- CONSTRUTORES ------------------------- //
     public JogoJSFSessionControl(){}
@@ -40,6 +43,16 @@ public class JogoJSFSessionControl implements Serializable
     
     public void removerJogador()
     {jogoEJBStatefullServices.remover(jogador);}
+    
+    public void gerarNumeroRandomico()
+    {
+        puzzle.setValor1(jogoEJBStatefullServices.gerarNumeroRandomico());  
+        puzzle.setValor2(jogoEJBStatefullServices.gerarNumeroRandomico());
+        puzzle.setSoma(puzzle.getValor1() + puzzle.getValor2());
+    }
+    
+    public void verificarPalpite()
+    {puzzle = jogoEJBStatefullServices.verificarPalpite(puzzle);}
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //
     public JogoEJBStatefullServices geteJBStatefullServices() 
