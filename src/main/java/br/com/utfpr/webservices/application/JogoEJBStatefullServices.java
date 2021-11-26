@@ -26,9 +26,6 @@ public class JogoEJBStatefullServices
         System.out.println(jogador);
     }
     
-    public Stream<Jogador> buscarRanking()
-    {return jogadorPersist.buscarRanking();}
-    
     public Jogador consultarPorId(Long id, Jogador jogador) 
     {return jogadorPersist.consultarPorId(id, jogador);}
     

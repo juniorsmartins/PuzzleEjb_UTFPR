@@ -96,7 +96,7 @@
         <p:panelGrid columns="1" layout="grid" columnClasses="p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4, p-col-12 p-md-4 p-xl-4" styleClass="customPaneGrid" style="margin-top:20px" contentStyleClass="ui-fluid">
             <h:form id="form_ranking1" style="margin-top:10px">
                 <p:fieldset id="fieldset_ranking1" legend="Ranking de Jogadores">
-                    <p:dataTable id="ranking1" value="#{jogoJSFSessionControl}" var="jogador" paginator="true" rows="10" paginatorPosition="bottom" clientCache="true">
+                    <p:dataTable id="ranking1" value="#{rankingJSFRequestControl.buscarRanking()}" var="jogador" paginator="true" rows="10" paginatorPosition="bottom" clientCache="true">
                         <p:column style="width:20px">
                             <h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" />
                             <p:draggable for="dragIcon" revert="true" helper="clone"/>
