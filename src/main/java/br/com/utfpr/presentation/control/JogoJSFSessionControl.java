@@ -5,6 +5,7 @@ import br.com.utfpr.webservices.application.JogoEJBStatefullServices;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.stream.Stream;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 
@@ -33,7 +34,7 @@ public class JogoJSFSessionControl implements Serializable
         jogoEJBStatefullServices.salvar(jogador);
         return "puzzle";
     }
-    
+   
     public void buscarPorId()
     {jogador = jogoEJBStatefullServices.consultarPorId(jogador.getId(), jogador);}
     
