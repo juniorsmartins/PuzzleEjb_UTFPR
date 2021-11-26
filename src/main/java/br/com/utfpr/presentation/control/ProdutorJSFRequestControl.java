@@ -1,6 +1,9 @@
 package br.com.utfpr.presentation.control;
 
 
+import br.com.utfpr.webservices.domainmodel.Jogador;
+import br.com.utfpr.webservices.infrastructure.Ranking;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -39,6 +42,27 @@ public class ProdutorJSFRequestControl
         {System.err.println("Erro - " + e.getMessage());}
         
         mensagem = " ";
+    }
+    
+    public void sendRanking(String resultado)
+    {
+        if(resultado.equalsIgnoreCase("Acertou"))
+        {
+            List<Jogador> rankeados = Ranking.getListaJogadores();
+
+            for(Jogador jogador : rankeados)
+            {
+                String jogadores = "" + jogador.getNome() + " - " + jogador.getPontos();
+                try{
+                    JMSContext context = connectionFactory.createContext();
+                    context.createProducer().send(fila, jogadores);
+                }catch(Exception e)
+                {
+                    System.err.println("Erro!");
+                    System.err.println(e.getMessage());
+                }
+            }
+        }
     }
     
     // ------------------------- MÉTODOS DE ACESSO E MODIFICAÇÃO ------------------------- //

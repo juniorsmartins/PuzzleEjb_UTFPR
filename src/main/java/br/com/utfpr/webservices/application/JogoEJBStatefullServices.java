@@ -19,6 +19,7 @@ public class JogoEJBStatefullServices
     // ------------------------- MÉTODOS DE SERVIÇO ------------------------- //
     public void salvar(Jogador jogador) 
     {
+        Ranking.gerarBaseDadosJogadores();
         Ranking.getListaJogadores().stream().filter(joga -> (joga.getCpf().equalsIgnoreCase(jogador.getCpf()))).map(joga -> {
             jogador.setPontos(jogador.getPontos() + joga.getPontos());
             return joga;

@@ -17,19 +17,19 @@ public class Ranking
     {
         Jogador j1 = new Jogador("999.999.999-99", "Pedro");
         j1.setPontos(8);
-        listaJogadores.stream().filter(jog -> (!jog.getCpf().equalsIgnoreCase(j1.getCpf()))).forEachOrdered(item -> {
+        listaJogadores.stream().filter(jog1 -> (!jog1.getCpf().equalsIgnoreCase(j1.getCpf()))).forEachOrdered(jog1 -> {
             listaJogadores.add(j1);
         });
 
         Jogador j2 = new Jogador("444.555.777-66", "Maria");
         j2.setPontos(8);
-        listaJogadores.stream().filter(jo -> (!jo.getCpf().equalsIgnoreCase(j2.getCpf()))).forEachOrdered(_item -> {
+        listaJogadores.stream().filter(jog2 -> (!jog2.getCpf().equalsIgnoreCase(j2.getCpf()))).forEachOrdered(jog2 -> {
             listaJogadores.add(j2);
         });
 
         Jogador j3 = new Jogador("888.111.222-77", "Karla");
         j3.setPontos(8);
-        listaJogadores.stream().filter(j -> (!j.getCpf().equalsIgnoreCase(j3.getCpf()))).forEachOrdered(__item -> {
+        listaJogadores.stream().filter(jog3 -> (!jog3.getCpf().equalsIgnoreCase(j3.getCpf()))).forEachOrdered(jog3 -> {
             listaJogadores.add(j3);
         });
     }

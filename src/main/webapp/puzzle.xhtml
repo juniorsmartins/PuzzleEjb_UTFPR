@@ -98,7 +98,9 @@
                                 <p:outputLabel id="resultado" value="#{jogoJSFSessionControl.puzzle.resultado}"></p:outputLabel> <br/>
                             </p:row>
                             <p:row>
-                                <p:commandButton update="palpite resultado valor1 valor2 form_ranking1" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}"></p:commandButton>
+                                <p:commandButton update="palpite resultado valor1 valor2 form_ranking1" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}">
+                                    <f:ajax event="click" execute="#{produtorJSFRequestControl.sendRanking(jogoJSFSessionControl.puzzle.resultado)}" />
+                                </p:commandButton>
                             </p:row>
                         </p:column>
                     </p:fieldset>
