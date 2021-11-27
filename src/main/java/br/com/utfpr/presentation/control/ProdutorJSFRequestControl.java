@@ -46,7 +46,7 @@ public class ProdutorJSFRequestControl
     
     public void sendRanking(String resultado)
     {
-        if(resultado.equalsIgnoreCase("Acertou"))
+        if(resultado.equalsIgnoreCase("Correto"))
         {
             List<Jogador> rankeados = Ranking.getListaJogadores();
 

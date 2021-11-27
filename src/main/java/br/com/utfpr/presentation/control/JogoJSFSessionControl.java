@@ -51,7 +51,7 @@ public class JogoJSFSessionControl implements Serializable
     public void verificarPalpite()
     {
         puzzle = jogoEJBStatefullServices.verificarPalpite(puzzle);
-        if(puzzle.getResultado().equalsIgnoreCase("Acertou"))
+        if(puzzle.getResultado().equalsIgnoreCase("Correto"))
         {jogador.setPontos(jogador.getPontos() + 1);}
     }
     

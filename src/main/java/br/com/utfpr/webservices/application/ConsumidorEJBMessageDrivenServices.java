@@ -24,7 +24,7 @@ public class ConsumidorEJBMessageDrivenServices implements MessageListener
         {
             TextMessage tm = (TextMessage) msg;
             System.out.println(tm.getText());
-        }catch(Exception e)
+        }catch(JMSException e)
         {System.err.println("Exceção! Message-drigen");}
         
     }

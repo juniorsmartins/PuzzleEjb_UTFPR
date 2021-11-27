@@ -21,10 +21,9 @@
                 <p:menubar>
                     <f:facet name="options">
                         <div class="ui-input-icon-left p-mr-2">
-                            <i class="pi pi-fw pi-comments" />
                             <p:inputText id="mensa1" type="text" value="#{produtorJSFRequestControl.mensagem}" placeholder="Mensagem para o suporte"/>
                         </div>
-                        <p:commandButton update="mensa1" value="Enviar" id="enviarMensagem1" action="#{produtorJSFRequestControl.send()}" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info m-2"/>
+                        <p:commandButton update="mensa1" value="Enviar" id="enviarMensagem1" action="#{produtorJSFRequestControl.send()}" styleClass="ui-button-info m-2"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
@@ -99,7 +98,7 @@
                             </p:row>
                             <p:row>
                                 <p:commandButton update="palpite resultado valor1 valor2 form_ranking1" style="margin-top:15px" value="Verificar palpite" action="#{jogoJSFSessionControl.verificarPalpite()}">
-                                    <f:ajax event="click" execute="#{produtorJSFRequestControl.sendRanking(jogoJSFSessionControl.puzzle.resultado)}" />
+                                    <f:ajax event="click" execute="#{produtorJSFRequestControl.sendRanking(jogoJSFSessionControl.puzzle.resultado)}" ></f:ajax>
                                 </p:commandButton>
                             </p:row>
                         </p:column>

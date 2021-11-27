@@ -19,7 +19,6 @@ public class JogoEJBStatefullServices
     // ------------------------- MÉTODOS DE SERVIÇO ------------------------- //
     public void salvar(Jogador jogador) 
     {
-        Ranking.gerarBaseDadosJogadores();
         Ranking.getListaJogadores().stream().filter(joga -> (joga.getCpf().equalsIgnoreCase(jogador.getCpf()))).map(joga -> {
             jogador.setPontos(jogador.getPontos() + joga.getPontos());
             return joga;
@@ -46,9 +45,9 @@ public class JogoEJBStatefullServices
     public Puzzle verificarPalpite(Puzzle puzzle)
     {
         if(puzzle.getPalpite() == puzzle.getSoma())
-        {puzzle.setResultado("Acertou");}
+        {puzzle.setResultado("Correto");}
         else
-        {puzzle.setResultado("Errou");}
+        {puzzle.setResultado("Errado");}
         puzzle.setPalpite(0);
         puzzle.setValor1(0);
         puzzle.setValor2(0);
