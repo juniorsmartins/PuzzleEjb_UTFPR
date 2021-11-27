@@ -26,7 +26,6 @@ public class JogoEJBStatefullServices
             Ranking.getListaJogadores().remove(joga);
         });
         Ranking.getListaJogadores().add(jogador);
-        System.out.println(jogador);
     }
     
     public void remover(Jogador jogador) 
