@@ -3,6 +3,7 @@ package br.com.utfpr.presentation.control;
 
 import br.com.utfpr.webservices.domainmodel.Jogador;
 import br.com.utfpr.webservices.infrastructure.Ranking;
+import java.util.Comparator;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.inject.Named;
@@ -48,7 +49,15 @@ public class ProdutorJSFRequestControl
     {
         if(resultado.equalsIgnoreCase("Correto"))
         {
+            String cabecalho = "---------- RANKING ----------";
+            try{
+                JMSContext context = connectionFactory.createContext();
+                context.createProducer().send(fila, cabecalho);
+            }catch(Exception e)
+            {System.err.println("Erro!");}
+            
             List<Jogador> rankeados = Ranking.getListaJogadores();
+            rankeados.sort(Comparator.comparingInt(Jogador::getPontos).reversed());
 
             for(Jogador jogador : rankeados)
             {
